@@ -374,7 +374,7 @@ func (o *Op) UnmarshalJSONBrief(data []byte) error {
 		case "big_map_diff":
 			var buf []byte
 			if buf, err = hex.DecodeString(f.(string)); err == nil && len(buf) > 0 {
-				bmd := make(micheline.BigmapDiff, 0)
+				bmd := make(micheline.BigmapEvents, 0)
 				err = bmd.UnmarshalBinary(buf)
 				if err == nil {
 					op.BigmapDiff = make([]BigmapUpdate, len(bmd))
